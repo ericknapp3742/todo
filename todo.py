@@ -1,5 +1,11 @@
+
+#Basic import statements to load datetime module
 import os
 from datetime import datetime
+
+
+#Creating function to load tasks from text file. Function checks to verify the existance of the text file, if it does not it returns []. 
+#Next, if the file exists it will read the lines from text file. Finally, it will strip the whitespace for each line when outputting.
 
 def load_tasks():
     if not os.path.exists('tasks.txt'):
@@ -7,6 +13,8 @@ def load_tasks():
     with open('tasks.txt', 'r') as f:
         lines = f.readlines()
     return [line.strip() for line in lines]
+
+#
 
 def save_tasks(tasks):
     with open('tasks.txt', 'w') as f:
